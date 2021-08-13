@@ -6,6 +6,25 @@ Digits can be a number or a string, and you should ensure it is not None and ret
 To give you a little more excitement, the program will not only write the result of the sum, but also write all the sums used: 3 + 4 + 3 + 3 = 13.
 */
 
-function sum(digits) {
- 
+const sum = (digits) => {
+  let numArr = [];
+  let str = ''
+  const reducer = (accumulator, currentValue) => accumulator + currentValue;
+  if(typeof digits === 'number') {
+    digits = digits.toString();
+  }
+  if(digits === undefined || digits === '') {
+    return '';
+  }
+  for(let i = 0; i < digits.length; i++) {
+    numArr.push(Number(digits[i]));
+    str += digits[i] + ' ';
+    if(i === digits.length - 1) {
+      str += '= ';
+    } else {
+      str += '+ ';
+    }
+  }
+  
+  return str + numArr.reduce(reducer);
 }
