@@ -10,11 +10,11 @@ const sum = (digits) => {
   let numArr = [];
   let str = ''
   const reducer = (accumulator, currentValue) => accumulator + currentValue;
-  if(typeof digits === 'number') {
-    digits = digits.toString();
-  }
   if(digits === undefined || digits === '') {
     return '';
+  }
+  if(typeof digits === 'number') {
+    digits = digits.toString();
   }
   for(let i = 0; i < digits.length; i++) {
     numArr.push(Number(digits[i]));
